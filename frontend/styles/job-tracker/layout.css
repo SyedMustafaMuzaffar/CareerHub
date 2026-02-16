@@ -1,0 +1,235 @@
+/* Global Layout */
+body {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    /* Top Bar, Header, Content, Footer */
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    width: 100%;
+}
+
+/* Top Bar & Navigation */
+.top-bar {
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0;
+}
+
+.top-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    padding: 0 var(--space-4);
+}
+
+.brand {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 20px 0;
+    /* Match height of bar minus border */
+    border-bottom: 2px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+}
+
+.nav-link.active {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
+/* Mobile Toggle */
+.mobile-menu-toggle {
+    display: none;
+    /* Hidden on desktop */
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-primary);
+    padding: var(--space-1);
+}
+
+@media (max-width: 768px) {
+    .top-bar-inner {
+        padding: 0 var(--space-2);
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        /* Hidden by default on mobile */
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: var(--color-white);
+        flex-direction: column;
+        padding: var(--space-2);
+        border-bottom: 1px solid var(--color-border);
+        gap: 0;
+        z-index: 999;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: var(--space-2) var(--space-2);
+        border-bottom: none;
+        border-left: 2px solid transparent;
+    }
+
+    .nav-link.active {
+        border-bottom-color: transparent;
+        border-left-color: var(--color-accent);
+        background-color: rgba(139, 0, 0, 0.02);
+    }
+}
+
+/* Context Header */
+.context-header {
+    padding: var(--space-5) 0 var(--space-3);
+}
+
+.context-header h1 {
+    font-size: 48px;
+    margin-bottom: var(--space-1);
+    color: var(--text-primary);
+}
+
+.context-header p {
+    font-size: 18px;
+    color: #555;
+    max-width: 600px;
+}
+
+/* Hero Section (Landing) */
+.hero-section {
+    text-align: center;
+    padding: 120px 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 56px;
+    line-height: 1.1;
+    margin-bottom: var(--space-3);
+    color: var(--text-primary);
+}
+
+.hero-sub {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: var(--space-4);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Form Layouts */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    max-width: 600px;
+}
+
+@media (min-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-full {
+        grid-column: span 2;
+    }
+}
+
+/* Dashboard Grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Main Workspace */
+.main-workspace {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    gap: var(--space-4);
+    padding-bottom: 80px;
+    /* Space for footer */
+}
+
+/* Secondary Panel */
+.secondary-panel {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    padding: var(--space-3);
+    border-radius: 4px;
+    height: fit-content;
+}
+
+/* Proof Footer */
+.proof-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-3) 0;
+    z-index: 100;
+}
+
+.proof-inner {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+}

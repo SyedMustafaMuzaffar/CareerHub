@@ -1,0 +1,3 @@
+Server running on port 5001
+Using In-Memory MongoDB at mongodb://127.0.0.1:53900/
+MongoDB Connected (In-Memory)

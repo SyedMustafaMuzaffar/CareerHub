@@ -1,0 +1,56 @@
+:root {
+    /* Colors */
+    --bg-primary: #F7F6F3;
+    --text-primary: #111111;
+    --color-accent: #8B0000;
+    --color-success: #388E3C;
+    /* Muted Green */
+    --color-warning: #FBC02D;
+    /* Muted Amber */
+    --color-border: #E0E0E0;
+    --color-white: #FFFFFF;
+
+    /* Typography */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+
+    --font-size-body: 16px;
+    --line-height-body: 1.6;
+
+    /* Spacing */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 40px;
+    --space-5: 64px;
+
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-normal: 200ms ease-in-out;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.02em;
+}
+
+p {
+    max-width: 720px;
+    margin-bottom: var(--space-2);
+}
