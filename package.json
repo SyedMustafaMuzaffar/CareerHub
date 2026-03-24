@@ -1,13 +1,27 @@
 {
-    "name": "placement-hub-root",
-    "version": "1.0.0",
-    "description": "Root package to manage Placement Hub frontend and backend",
-    "scripts": {
-        "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-        "dev": "concurrently \"cd backend && npm start\" \"cd frontend && npm run dev\"",
-        "build": "cd frontend && npm install && npm run build"
-    },
-    "devDependencies": {
-        "concurrently": "^8.0.0"
-    }
+  "name": "placement-hub",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm start\" \"next dev\"",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "install-all": "npm install && cd backend && npm install"
+  },
+  "dependencies": {
+    "axios": "^1.2.1",
+    "next": "13.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1",
+    "chart.js": "^4.0.1",
+    "react-chartjs-2": "^5.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4",
+    "concurrently": "^8.0.0"
+  }
 }
