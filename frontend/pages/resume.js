@@ -34,7 +34,8 @@ export default function ResumeBuilder() {
     // AI Handler
     const handleAIGenerate = async (type, context) => {
         try {
-            const res = await axios.post('http://localhost:5001/api/resume/generate', {
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+            const res = await axios.post(`${API_URL}/api/resume/generate`, {
                 type,
                 context
             });
@@ -100,7 +101,8 @@ export default function ResumeBuilder() {
 
         if (user) {
             try {
-                await axios.post('http://localhost:5001/api/resume', {
+                const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+                await axios.post(`${API_URL}/api/resume`, {
                     user: user.id,
                     ...resumeData
                 });

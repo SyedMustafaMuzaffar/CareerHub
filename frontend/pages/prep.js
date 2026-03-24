@@ -14,7 +14,8 @@ export default function Prep() {
         setScore(null);
         setAnswers({});
         try {
-            const res = await axios.get(`http://localhost:5001/api/prep/questions/${type}`);
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+            const res = await axios.get(`${API_URL}/api/prep/questions/${type}`);
             setQuestions(res.data);
         } catch (error) {
             // Fallback mock questions
@@ -50,7 +51,8 @@ export default function Prep() {
 
         if (user) {
             try {
-                await axios.post('http://localhost:5001/api/prep/submit', {
+                const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+                await axios.post(`${API_URL}/api/prep/submit`, {
                     user: user.id,
                     testType: activeTab,
                     score: calculatedScore,

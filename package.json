@@ -4,7 +4,8 @@
     "description": "Root package to manage Placement Hub frontend and backend",
     "scripts": {
         "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
-        "dev": "concurrently \"cd backend && npm start\" \"cd frontend && npm run dev\""
+        "dev": "concurrently \"cd backend && npm start\" \"cd frontend && npm run dev\"",
+        "build": "cd frontend && npm install && npm run build"
     },
     "devDependencies": {
         "concurrently": "^8.0.0"

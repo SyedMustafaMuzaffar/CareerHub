@@ -16,7 +16,8 @@ export default function Register() {
         e.preventDefault();
         setError('');
         try {
-            const res = await axios.post('http://localhost:5001/api/auth/register', formData);
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+            const res = await axios.post(`${API_URL}/api/auth/register`, formData);
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('user', JSON.stringify(res.data.user));
             router.push('/dashboard');

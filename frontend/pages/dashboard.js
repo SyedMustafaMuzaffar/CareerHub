@@ -18,7 +18,8 @@ export default function Dashboard() {
 
         const fetchData = async () => {
             try {
-                const res = await axios.get(`http://localhost:5001/api/dashboard/${user.id}`);
+                const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+                const res = await axios.get(`${API_URL}/api/dashboard/${user.id}`);
                 setData(res.data);
             } catch (error) {
                 console.error("Error fetching dashboard data", error);

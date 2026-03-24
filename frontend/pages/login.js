@@ -16,7 +16,8 @@ export default function Login() {
         e.preventDefault();
         setError('');
         try {
-            const res = await axios.post('http://localhost:5001/api/auth/login', formData);
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+            const res = await axios.post(`${API_URL}/api/auth/login`, formData);
             // Save token/user info (in real app use Context/secure cookie)
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('user', JSON.stringify(res.data.user));
